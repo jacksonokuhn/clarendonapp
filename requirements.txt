@@ -1,11 +1,2 @@
 Flask
-Jinja2
-Markup
-Werkzeug
-gunicorn
-itsdangerous
-ndg-httpsclient
-pyOpenSSL
-pyasn1
 requests
-wsgiref
