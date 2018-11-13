@@ -21,7 +21,7 @@ def webhook():
         }
         try:
             response = requests.post(SLACK_INCOMING_WEBHOOK_URL, data=json.dumps(params))
-        except Exception, e:
+        except Exception e:
             return 'Posting to Slack failed: %s' % str(e)
     return ''
 
