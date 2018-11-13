@@ -13,7 +13,7 @@ KINK_URL = os.environ['KINK_URL']
 @app.route('/webhook', methods=['POST'])
 def webhook():
     token = request.form.get('token')
-    if not SLACK_OUTGOING_WEBHOOK_TOKEN or token == SLACK_OUTGOING_WEBHOOK_TOKEN:
+    if token == SLACK_OUTGOING_WEBHOOK_TOKEN:
         text = request.form.get('text')
         first, _, resp_text = text.partition(" ")
         if first == '#kink':
