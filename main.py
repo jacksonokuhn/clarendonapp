@@ -12,6 +12,8 @@ SLACK_INCOMING_WEBHOOK_URL = os.environ['SLACK_INCOMING_WEBHOOK_URL']
 @app.route('/webhook', methods=['POST'])
 def webhook():
     token = request.form.get('token')
+    print(token)
+    print(SLACK_OUTGOING_WEBHOOK_TOKEN)
     if not SLACK_OUTGOING_WEBHOOK_TOKEN or token == SLACK_OUTGOING_WEBHOOK_TOKEN:
         params = {
                 'username': 'anonbot',
@@ -23,5 +25,4 @@ def webhook():
             response = requests.post(SLACK_INCOMING_WEBHOOK_URL, data=json.dumps(params))
         except Exception as e:
             return 'Posting to Slack failed: %s' % str(e)
-    return ''
 
